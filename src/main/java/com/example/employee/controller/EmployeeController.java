@@ -65,8 +65,12 @@ import java.util.Map;
             response.put("deleted", Boolean.TRUE);
             return ResponseEntity.ok(response);
         }
-        //delete all
-    @DeleteMapping("/delete-all")
+        //search last name
+        @GetMapping("/{search}")
+        public Employee getEmployeeBySearch(@PathVariable String search)  {
+            Employee employee = repository.findUserByNamedParams(search);
+            return employee;
+        }
     public void deleteAll() {
             repository.deleteAll();
     }
