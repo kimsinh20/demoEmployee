@@ -66,9 +66,9 @@ import java.util.Map;
             return ResponseEntity.ok(response);
         }
         //search last name
-        @GetMapping("/{search}")
-        public Employee getEmployeeBySearch(@PathVariable String search)  {
-            Employee employee = repository.findUserByNamedParams(search);
+        @GetMapping("/search/{search}")
+        public List<Employee> getEmployeeBySearch(@PathVariable String search)  {
+            List<Employee> employee = repository.findUserByNamedParams(search);
             return employee;
         }
     public void deleteAll() {
